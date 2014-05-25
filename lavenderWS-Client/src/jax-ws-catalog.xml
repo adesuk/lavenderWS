@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8082/lavenderWS/mahasiswaService?wsdl" uri="wsdl/localhost_8082/lavenderWS/mahasiswaService.wsdl"/>
+    <system systemId="http://localhost:8082/lavenderWS/mahasiswaService?xsd=1" uri="wsdl/localhost_8082/lavenderWS/mahasiswaService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8082/lavenderWS/dosenService?wsdl" uri="wsdl/localhost_8082/lavenderWS/dosenService.wsdl"/>
+    <system systemId="http://localhost:8082/lavenderWS/dosenService?xsd=1" uri="wsdl/localhost_8082/lavenderWS/dosenService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8082/lavenderWS/topikService?wsdl" uri="wsdl/localhost_8082/lavenderWS/topikService.wsdl"/>
+    <system systemId="http://localhost:8082/lavenderWS/topikService?xsd=1" uri="wsdl/localhost_8082/lavenderWS/topikService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8082/lavenderWS/ruanganService?wsdl" uri="wsdl/localhost_8082/lavenderWS/ruanganService.wsdl"/>
+    <system systemId="http://localhost:8082/lavenderWS/ruanganService?xsd=1" uri="wsdl/localhost_8082/lavenderWS/ruanganService.xsd_1.xsd"/>
+</catalog>

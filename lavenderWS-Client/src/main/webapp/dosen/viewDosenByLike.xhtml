@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+  <h:body>
+    <ui:composition template="/WEB-INF/templates/BasicTemplate.xhtml">
+      <ui:define name="content">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <f:view>
+                  <h:form id="fromDosen">
+                   <!-- Teks Inputan -->
+                  <div class="form-group">
+                    <h:outputLabel styleClass="col-md-2">
+                      <h:outputText value="Inisial atau Nama Dosen" /> <span class="required">*</span>
+                    </h:outputLabel>
+                    <div class="col-md-4">
+                        <p:inputText id="inputan" 
+                                     value="#{dosenMBean.param}"/>
+                    </div>
+                  </div>
+                  
+                  <!-- Tombol-tombol itu -->
+                  <div class="form-group">                  	
+                    <div class="col-md-offset-7 col-md-15">
+                      <p:commandButton value="Cari" style="margin: 0 5px; width: 90px;"
+                                       actionListener="#{dosenMBean.findDosenByLike()}" 
+                                       update="tabelDosen"/>                      
+                    </div>
+                  </div>      
+                   
+                  <p:dataTable id="tabelDosen" var="dosen" value="#{dosenMBean.dosens}"> 
+                	<p:column headerText="Inisial">  
+                            <h:outputText value="#{dosen.inisialDosen}" />  
+        			</p:column>
+        			<p:column headerText="Nama">  
+                                    <h:outputText value="#{dosen.namaDosen}" />  
+        			</p:column> 
+        			<p:column headerText="Gelar Depan">  
+                                    <h:outputText value="#{dosen.gelarDepan}" />  
+        			</p:column> 
+        			<p:column headerText="Gelar Belakang">  
+                                    <h:outputText value="#{dosen.gelarBelakang}" />  
+        			</p:column>
+        			<p:column headerText="Status">  
+                                    <h:outputText value="#{dosen.status}" />  
+        			</p:column>
+                                <p:column>
+        				<p:commandButton update=":#{p:component('display')}" value="View" oncomplete="dialog.show();"
+                                                         style="margin: 0 5px; width: 90px;" action="#{dosenMBean.findDosenById}">
+                                            <f:setPropertyActionListener target="#{dosenMBean.param}" value="#{dosen.inisialDosen}" />
+        				</p:commandButton>        					
+        			</p:column>
+                </p:dataTable>
+                  
+                   <!-- Panel Edit -->               
+               <p:dialog id="viewDosen" header="Data Dosen" widgetVar="dialog" modal="true">               	   
+                    <p:panelGrid id="display" columns="2">
+	               	  	             	  	
+                        <h:outputLabel for="inisial" value="Inisial :" />
+                        <h:outputText id="inisial" value="#{dosenMBean.dosen.inisialDosen}"/>
+	               	  	
+	               	<h:outputLabel for="nama" value="Nama :" />
+                        <h:outputText id="nama" value="#{dosenMBean.dosen.namaDosen}"/>
+	               	  	
+                        <h:outputLabel for="gelar" value="Gelar :" />
+                        <h:outputText id="gelar" value="#{dosenMBean.dosen.gelarDepan}, #{dosenMBean.dosen.gelarBelakang}" />
+                        
+                        <h:outputLabel for="status" value="Status :" />
+                        <h:outputText id="status" value="#{dosenMBean.dosen.status}"/>
+	                           
+                    </p:panelGrid>                
+               		
+               </p:dialog>
+                  
+                  
+                  </h:form>
+              </f:view>
+            </div>
+          </div>
+        </div>
+      </ui:define>
+    </ui:composition>
+  </h:body>
+</html>
+

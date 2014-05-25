@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.3 (tags/2.3-7528; 2013-04-29T19:34:10+0000) JAXWS-RI/2.2.8 JAXWS/2.2 svn-revision#unknown. --><xs:schema xmlns:tns="http://service.lavenderws.lavender.itb.id.ac/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://service.lavenderws.lavender.itb.id.ac/">
+
+<xs:element name="findAllMahasiswa" type="tns:findAllMahasiswa"/>
+
+<xs:element name="findAllMahasiswaResponse" type="tns:findAllMahasiswaResponse"/>
+
+<xs:element name="findMahasiswaByID" type="tns:findMahasiswaByID"/>
+
+<xs:element name="findMahasiswaByIDResponse" type="tns:findMahasiswaByIDResponse"/>
+
+<xs:element name="findMahasiswaByNameLike" type="tns:findMahasiswaByNameLike"/>
+
+<xs:element name="findMahasiswaByNameLikeResponse" type="tns:findMahasiswaByNameLikeResponse"/>
+
+<xs:element name="mahasiswaEntity" type="tns:mahasiswaEntity"/>
+
+<xs:complexType name="findAllMahasiswa">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="findAllMahasiswaResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:mahasiswaEntity" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="mahasiswaEntity">
+<xs:sequence>
+<xs:element name="jenjang" type="xs:string" minOccurs="0"/>
+<xs:element name="namaMhs" type="xs:string" minOccurs="0"/>
+<xs:element name="nim" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findMahasiswaByNameLike">
+<xs:sequence>
+<xs:element name="str" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findMahasiswaByNameLikeResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:mahasiswaEntity" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findMahasiswaByID">
+<xs:sequence>
+<xs:element name="nim" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findMahasiswaByIDResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:mahasiswaEntity" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

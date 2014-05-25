@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+  <h:body>
+    <ui:composition template="/WEB-INF/templates/BasicTemplate.xhtml">
+      <ui:define name="content">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <f:view>               
+                  <p:dataTable id="tabelDosen" var="dosen" value="#{dosenMBean.allDosen}" 
+                               > 
+                	<p:column headerText="Inisial">  
+                            <h:outputText value="#{dosen.inisialDosen}" />  
+        			</p:column>
+        			<p:column headerText="Nama">  
+                                    <h:outputText value="#{dosen.namaDosen}" />  
+        			</p:column> 
+        			<p:column headerText="Gelar Depan">  
+                                    <h:outputText value="#{dosen.gelarDepan}" />  
+        			</p:column> 
+        			<p:column headerText="Gelar Belakang">  
+                                    <h:outputText value="#{dosen.gelarBelakang}" />  
+        			</p:column>
+        			<p:column headerText="Status">  
+                                    <h:outputText value="#{dosen.status}" />  
+        			</p:column>        			
+                </p:dataTable>
+              </f:view>
+            </div>
+          </div>
+        </div>
+      </ui:define>
+    </ui:composition>
+  </h:body>
+</html>
+
